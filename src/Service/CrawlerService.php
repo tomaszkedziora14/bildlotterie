@@ -20,6 +20,7 @@ class CrawlerService
         $crawler = new Crawler($html);
         $result = $crawler->filterXpath('//img')->extract(array('src'));
         $array = $this->getHttpsLinks($result);
+
         return array_values($array);
     }
 
@@ -35,6 +36,7 @@ class CrawlerService
         foreach($listWitchUrl as $value){
            $list[] = $this->fileInfo->getOnlyFileNameFromLink($value);
         }
+
         return $list;
     }
 

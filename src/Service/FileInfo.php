@@ -43,6 +43,7 @@ class FileInfo
         $originalName = str_replace('\\', '/', $imageUrl);
         $pos = strrpos($originalName, '/');
         $originalName = false === $pos ? $originalName : substr($originalName, $pos + 1);
+
         return $originalName;
     }
 }

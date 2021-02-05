@@ -8,7 +8,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Service\CrawlerService;
 use App\Service\FileUploader;
 use App\Service\FileInfo;
-use App\Service\TestFileUploader;
 
 class PictureLotteryController extends AbstractController
 {
@@ -30,8 +29,8 @@ class PictureLotteryController extends AbstractController
             $fileUploder->uploadImage($imageUrl[$key]);
         }
 
-         return $this->render('picture_lottery/index.html.twig', [
+        return $this->render('picture_lottery/index.html.twig', [
             'controller_name' => 'PictureLotteryController',
-         ]);
+        ]);
     }
 }
