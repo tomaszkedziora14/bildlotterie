@@ -14,10 +14,16 @@ class CrawlerService
       $this->fileInfo = $fileInfo;
     }
 
+    public function getCrawler($pageUrl)
+    {
+        $html = file_get_contents($pageUrl);
+        return new Crawler($html);
+    }
+
     public function getImagesList($pageUrl) 
     {
         $html = file_get_contents($pageUrl);
-        $crawler = new Crawler($html);
+        $crawler = $this->getCrawler($pageUrl);
         $result = $crawler->filterXpath('//img')->extract(array('src'));
         $array = $this->getHttpsLinks($result);
 
@@ -27,7 +33,7 @@ class CrawlerService
     public function getImagesListWithoutUrl($pageUrl)
     {
         $html = file_get_contents($pageUrl);
-        $crawler = new Crawler($html);
+        $crawler = $this->getCrawler($pageUrl);
         $result = $crawler->filterXpath('//img')->extract(array('src'));
         $array = $this->getHttpsLinks($result);
         $listWitchUrl = array_values($array);
