@@ -16,8 +16,7 @@ class PictureLotteryController extends AbstractController
      */
     public function randomRemoteUploader(
         CrawlerService $crawlerService,
-        FileUploader $fileUploder,
-        FileInfo $fileInfo
+        FileUploader $fileUploder
     ): Response {
 
         $pageUrl = 'https://sklep.swiatkwiatow.pl/';
