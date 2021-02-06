@@ -14,7 +14,7 @@ class PictureLotteryController extends AbstractController
     /**
      * @Route("/picture/lottery", name="picture_lottery")
      */
-    public function index(
+    public function randomRemoteUploader(
         CrawlerService $crawlerService,
         FileUploader $fileUploder,
         FileInfo $fileInfo
@@ -28,9 +28,6 @@ class PictureLotteryController extends AbstractController
         foreach($randKeys as $key){
             $fileUploder->uploadImage($imageUrl[$key]);
         }
-
-        return $this->render('picture_lottery/index.html.twig', [
-            'controller_name' => 'PictureLotteryController',
-        ]);
+        return new Response($pageUrl);
     }
 }
