@@ -11,7 +11,7 @@ class CrawlerService
 
     public function __construct(FileInfo $fileInfo)
     {
-      $this->fileInfo = $fileInfo;
+        $this->fileInfo = $fileInfo;
     }
 
     public function getCrawler($pageUrl)
