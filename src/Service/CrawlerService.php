@@ -22,7 +22,6 @@ class CrawlerService
 
     public function getImagesList($pageUrl) 
     {
-        $html = file_get_contents($pageUrl);
         $crawler = $this->getCrawler($pageUrl);
         $result = $crawler->filterXpath('//img')->extract(array('src'));
         $array = $this->getHttpsLinks($result);
@@ -32,7 +31,6 @@ class CrawlerService
 
     public function getImagesListWithoutUrl($pageUrl)
     {
-        $html = file_get_contents($pageUrl);
         $crawler = $this->getCrawler($pageUrl);
         $result = $crawler->filterXpath('//img')->extract(array('src'));
         $array = $this->getHttpsLinks($result);
