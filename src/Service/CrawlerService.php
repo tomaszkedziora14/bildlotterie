@@ -29,21 +29,6 @@ class CrawlerService
         return array_values($array);
     }
 
-    public function getImagesListWithoutUrl($pageUrl)
-    {
-        $crawler = $this->getCrawler($pageUrl);
-        $result = $crawler->filterXpath('//img')->extract(array('src'));
-        $array = $this->getHttpsLinks($result);
-        $listWitchUrl = array_values($array);
-
-        $list = [];
-        foreach($listWitchUrl as $value){
-           $list[] = $this->fileInfo->getOnlyFileNameFromLink($value);
-        }
-
-        return $list;
-    }
-
     public function getHttpsLinks($imgList)
     {
         return preg_grep ('/^https/', $imgList);
