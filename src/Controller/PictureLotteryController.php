@@ -21,11 +21,11 @@ class PictureLotteryController extends AbstractController
 
         $pageUrl = 'https://sklep.swiatkwiatow.pl/';
 
-        $imageUrl = $crawlerService->getImagesList($pageUrl);
-        $randKeys = array_rand($imageUrl, 3);
+        $imagesArray = $crawlerService->getImagesList($pageUrl);
+        $randKeys = array_rand($imagesArray, 3);
 
         foreach($randKeys as $key){
-            $fileUploder->uploadImage($imageUrl[$key]);
+            $fileUploder->uploadImage($imagesArray[$key]);
         }
         return new Response($pageUrl);
     }
