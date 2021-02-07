@@ -5,7 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Service\ImageCrawlerService;
+use App\Service\CrawlerServiceInterface;
 use App\Service\FileUploader;
 use App\Service\FileInfo;
 
@@ -15,7 +15,7 @@ class PictureLotteryController extends AbstractController
      * @Route("/picture/lottery", name="picture_lottery")
      */
     public function randomRemoteUploader(
-        ImageCrawlerService $imageCrawlerService,
+        CrawlerServiceInterface $imageCrawlerService,
         FileUploader $fileUploder
     ): Response {
 
