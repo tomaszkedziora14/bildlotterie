@@ -4,13 +4,13 @@ namespace App\Service;
 
 use Symfony\Component\DomCrawler\Crawler;
 use App\Service\CrawlerServiceInterface;
-use App\Service\FileInfo;
+use App\Service\FileInfoServiceInterface;
 
 class ImageCrawlerService implements CrawlerServiceInterface
 {
     protected $fileInfo;
 
-    public function __construct(FileInfo $fileInfo)
+    public function __construct(FileInfoServiceInterface $fileInfo)
     {
         $this->fileInfo = $fileInfo;
     }

@@ -3,17 +3,18 @@
 namespace App\Service;
 
 use Symfony\Component\Finder\Finder;
+use App\Service\FileInfoServiceInterface;
 
-class FileInfo
+class FileInfoService implements FileInfoServiceInterface
 {
-    public function getRootDirWitchFile($file)
-    {
-       return '../uploads/'.$file;
-    }
-
-    public function getRootDirToOnlyFolder()
+    public function getRootDir()
     {
        return '../uploads/';
+    }
+
+    public function getRootDirWitchFile($file)
+    {
+        return '../uploads/'.$file;
     }
 
     public function getDirToLogFolder()

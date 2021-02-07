@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Service\CrawlerServiceInterface;
 use App\Service\FileUploader;
-use App\Service\FileInfo;
+//use App\Service\FileInfo;
 
 class PictureLotteryController extends AbstractController
 {
