@@ -4,7 +4,7 @@
 namespace App\Service;
 
 
-interface CrawlerServiceInterface
+interface CrawlerInterface
 {
     public function getCrawler($pageUrl);
 }

@@ -2,22 +2,23 @@
 
 namespace App\Service;
 
-use App\Service\FileInfoServiceInterface;
+use App\Service\FileInfoInterface;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
+use App\Service\File;
 
 class FileUploader
 {
   private $fileInfo;
 
-  public function __construct(FileInfoServiceInterface $fileInfo)
+  public function __construct(FileInfoInterface $fileInfo)
   {
       $this->fileInfo = $fileInfo;
   }
 
-  public function uploadImage($imageUrl)
+  public function upload($imageUrl)
   {
-      $imageName = $this->fileInfo->getOnlyFileNameFromLink($imageUrl);
+      $imageName = $this->fileInfo->getFileNameFromLink($imageUrl);
       $uploadsDir = $this->fileInfo->getRootDir().$imageName;
 
       $log = new Logger('test');

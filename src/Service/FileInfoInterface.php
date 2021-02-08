@@ -4,7 +4,7 @@
 namespace App\Service;
 
 
-interface FileInfoServiceInterface
+interface FileInfoInterface
 {
     public function getRootDir();
 }

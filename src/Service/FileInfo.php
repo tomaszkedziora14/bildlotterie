@@ -3,9 +3,9 @@
 namespace App\Service;
 
 use Symfony\Component\Finder\Finder;
-use App\Service\FileInfoServiceInterface;
+use App\Service\FileInfoInterface;
 
-class FileInfoService implements FileInfoServiceInterface
+class FileInfo implements FileInfoInterface
 {
     public function getRootDir()
     {
@@ -39,7 +39,7 @@ class FileInfoService implements FileInfoServiceInterface
          return $tab;
     }
 
-    public function getOnlyFileNameFromLink($imageUrl)
+    public function getFileNameFromLink($imageUrl)
     {
         $originalName = str_replace('\\', '/', $imageUrl);
         $pos = strrpos($originalName, '/');
