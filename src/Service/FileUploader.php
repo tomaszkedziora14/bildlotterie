@@ -6,8 +6,9 @@ use App\Service\FileInfoInterface;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use App\Service\File;
+use App\Service\FileUploaderInterface;
 
-class FileUploader
+class FileUploader implements FileUploaderInterface
 {
   private $fileInfo;
 
@@ -16,9 +17,9 @@ class FileUploader
       $this->fileInfo = $fileInfo;
   }
 
-  public function upload($imageUrl)
+  public function upload($uploadedFile)
   {
-      $imageName = $this->fileInfo->getFileNameFromLink($imageUrl);
+      $imageName = $this->fileInfo->getFileNameFromLink($uploadedFile);
       $uploadsDir = $this->fileInfo->getRootDir().$imageName;
 
       $log = new Logger('test');
@@ -28,7 +29,7 @@ class FileUploader
           $log->warning('trying to upload the same image '.$imageName);
       }
 
-      $content = file_get_contents($imageUrl);
+      $content = file_get_contents($uploadedFile);
       $fp = fopen($uploadsDir, "w");
       fwrite($fp, $content);
       fclose($fp);

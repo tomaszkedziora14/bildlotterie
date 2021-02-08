@@ -10,6 +10,6 @@ class File extends FileBase
 {
     private function upload()
     {
-        parent::move('../uploads/',);
+        parent::move();
     }
 }

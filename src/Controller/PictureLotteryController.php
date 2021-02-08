@@ -18,14 +18,14 @@ class PictureLotteryController extends AbstractController
         FileUploader $fileUploder
     ): Response {
 
-        $pageUrl = 'https://sklep.swiatkwiatow.pl/';
+        $url = 'https://sklep.swiatkwiatow.pl/';
 
-        $imagesArray = $imageCrawler->getImagesList($pageUrl);
-        $randKeys = array_rand($imagesArray, 3);
+        $imagesList = $imageCrawler->getImagesList($url);
+        $randKeys = array_rand($imagesList, 3);
 
         foreach($randKeys as $key){
-            $fileUploder->upload($imagesArray[$key]);
+            $fileUploder->upload($imagesList[$key]);
         }
-        return new Response($pageUrl);
+        return new Response($url);
     }
 }
