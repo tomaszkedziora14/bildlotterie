@@ -18,7 +18,7 @@ class PictureLotteryController extends AbstractController
         FileUploaderInterface $fileUploder
     ): Response {
 
-        $url = 'https://sklep.swiatkwiatow.pl/';
+        $url = 'https://some-url.pl/';
 
         $imagesList = $imageCrawler->getImagesList($url);
         $randKeys = array_rand($imagesList, 3);
